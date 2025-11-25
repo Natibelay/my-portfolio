@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middleware/authMiddleware.js";
-import Contact from "./models/Contact.js"; // make sure this exists
+import Contact from "./models/contact.js"; // make sure this exists
 
 dotenv.config();
 
