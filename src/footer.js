@@ -8,7 +8,7 @@ export default function Footer() {
 
         <div className="flex items-center gap-2">
           <span className="font-bold text-orange-400"></span>
-          <a href="mailto:natnael@example.com" className="hover:underline text-white">
+          <a href="" className="hover:underline text-white">
             Contact me
           </a>
         </div>
@@ -16,14 +16,14 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <span className="font-bold text-orange-400">📧 Email:</span>
           <a href="mailto:natibelay@gmail.com" className="hover:underline text-white">
-            Natibelay@gmail.com
+            Natibelay1@gmail.com
           </a>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="font-bold text-orange-400">📞 Phone:</span>
           <a href="tel:+251912345678" className="hover:underline text-white">
-            +251 912 345 678
+            +251963061108
           </a>
         </div>
 

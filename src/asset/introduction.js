@@ -5,6 +5,8 @@ import "./introduction.css";
 
 export default function SkillsMarquee({ speed = 20 /* seconds per loop (lower = faster) */ }) {
   // items to show (icon, label, background color)
+ 
+ 
   const skills = [
     { id: "js", icon: <FaJsSquare />, color: "#f7df1e", fg: "#000" },
     { id: "react", icon: <FaReact />, color: "#61dafb", fg: "#05273a" },
@@ -26,7 +28,8 @@ export default function SkillsMarquee({ speed = 20 /* seconds per loop (lower = 
 
     <div className="marquee">
       {/* pass speed via CSS variable for easy control */ }
-      <div> <h1> My Skills </h1></div>
+      <div className="skillfont " style={{fontFamily : "-apple-system", fontSize: "2rem", }}>
+         <br/><br/> <h1> My Skills </h1> </div>
       <div
         className="marquee-track"
         style={{ animationDuration: `${speed}s` }}
