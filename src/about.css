@@ -1,0 +1,14 @@
+.about-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.about-heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about-paragraph {
+  font-size: 1.2rem;
+  color: gray;
+}

@@ -1,0 +1,126 @@
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f4f7fb;
+  color: #333;
+}
+
+/* ===========================
+   CONTACT PAGE LAYOUT
+=========================== */
+.contact-main {
+  display: flex;                /* FLEXBOX */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container with Grid layout */
+.contact-container {
+  display: grid;                /* GRID */
+  grid-template-columns: 1fr;
+  background: #fff;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;           /* POSITIONING BASE */
+}
+
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* ===========================
+   FORM STYLING
+=========================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;       /* FLEXBOX */
+  gap: 20px;
+}
+
+.contact-form label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* focus effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1a73e8;
+  outline: none;
+  box-shadow: 0 0 4px rgba(26,115,232,0.3);
+}
+
+/* Button styling */
+button {
+  padding: 12px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #135ec2;
+}
+
+/* ===========================
+   SUCCESS MESSAGE
+=========================== */
+.success-message {
+  margin-top: 15px;
+  background: #d7ffd9;
+  padding: 10px 15px;
+  border-left: 4px solid #33cc45;
+  border-radius: 6px;
+
+  position: absolute; /* POSITIONING */
+  bottom: -60px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+=========================== */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 25px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 20px;
+  }
+
+  .contact-main {
+    padding: 10px;
+  }
+}

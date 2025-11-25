@@ -1,0 +1,21 @@
+.footer {
+  background-color: black;/* black */
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  margin-top: 50px;
+ 
+
+ 
+  box-sizing: border-box; /* includes padding in width */
+
+      border-top: 2px solid #060043;
+       
+}
+
+.n {
+ text-align: center;
+
+}
+.nati {
+  text-align: right;
+}

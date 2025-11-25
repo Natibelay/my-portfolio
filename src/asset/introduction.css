@@ -1,0 +1,76 @@
+/* container (clipped) */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: transparent; /* change as needed */
+}
+
+/* track is twice the content so duplication is seamless */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 200%; /* because we duplicated items */
+  animation-name: marquee-right;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* duration set inline from component via style (seconds) */
+}
+
+/* pause on hover */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* each item wrapper */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  user-select: none;
+}
+
+/* colored icon box */
+.skill-box {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* small text label to the right of icon */
+.skill-label {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+/* hover pop */
+.skill-item:hover .skill-box {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+}
+
+/* keyframes: move from -50% to 0 -> that visually moves the duplicated content rightwards (left→right) */
+@keyframes marquee-right {
+  from { transform: translateX(-50%); } /* start shifted left half the track */
+  to   { transform: translateX(0%); }   /* move to normal position */
+}
+
+/* responsiveness */
+@media (max-width: 720px) {
+  .skill-box { width: 48px; height: 48px; font-size: 22px; min-width: 48px; min-height: 48px; }
+  .skill-label { display: none; } /* hide labels on small screens for compactness */
+  .marquee { padding: 8px 0; }
+}
