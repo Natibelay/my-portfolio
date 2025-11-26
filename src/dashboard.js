@@ -12,7 +12,7 @@ export default function Dashboard({ token }) {
   // Fetch users from backend
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/users", {
+      const res = await fetch("https://my-portfolio-8-xqei.onrender.com/api/auth/users", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -27,7 +27,7 @@ export default function Dashboard({ token }) {
   // Fetch messages from backend
   const fetchMessages = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/contact");
+      const res = await fetch("https://my-portfolio-8-xqei.onrender.com/api/contact");
       const data = await res.json();
       setMessages(data);
       setLoadingMessages(false);
@@ -48,7 +48,7 @@ export default function Dashboard({ token }) {
     if (!confirmDelete) return;
 
     try {
-      await fetch(`http://localhost:5000/api/contact/${id}`, { method: "DELETE" });
+      await fetch(`https://my-portfolio-8-xqei.onrender.com/api/contact/${id}`, { method: "DELETE" });
       setMessages(messages.filter(msg => msg._id !== id));
     } catch (err) {
       console.error("Error deleting message:", err);
@@ -64,7 +64,7 @@ export default function Dashboard({ token }) {
   // Save edited message
   const saveEdit = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const res = await fetch(`https://my-portfolio-8-xqei.onrender.com/api/contact/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: editingMessage })
