@@ -4,16 +4,17 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middleware/authMiddleware.js";
-import Contact from "./models/contact.js"; // make sure this exists
+import Contact from "./models/contact.js";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const URL = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
 
 // Middleware
-app.use(cors());           // allow cross-origin requests
-app.use(express.json());   // parse JSON bodies
+app.use(cors());           // Allow cross-origin requests
+app.use(express.json());   // Parse JSON bodies
 
 // Connect to MongoDB
 mongoose
@@ -23,16 +24,15 @@ mongoose
 
 // ------------------- Routes -------------------
 
-// Auth routes (signup, login)
+// Auth routes
 app.use("/api/auth", authRoutes);
 
-// Example protected route
+// Protected route example
 app.get("/api/protected", protect, (req, res) => {
   res.json({ message: `Welcome ${req.user.name}, you are authorized!` });
 });
 
 // Contact routes
-// Create a new contact message
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, message } = req.body;
@@ -46,7 +46,6 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// Get all contact messages
 app.get("/api/contact", async (req, res) => {
   try {
     const messages = await Contact.find().sort({ createdAt: -1 });
@@ -56,7 +55,6 @@ app.get("/api/contact", async (req, res) => {
   }
 });
 
-// Delete a contact message
 app.delete("/api/contact/:id", async (req, res) => {
   try {
     const deleted = await Contact.findByIdAndDelete(req.params.id);
@@ -67,7 +65,6 @@ app.delete("/api/contact/:id", async (req, res) => {
   }
 });
 
-// Update a contact message
 app.put("/api/contact/:id", async (req, res) => {
   try {
     const updated = await Contact.findByIdAndUpdate(
@@ -82,8 +79,8 @@ app.put("/api/contact/:id", async (req, res) => {
   }
 });
 
-// Test route
+// Root test route
 app.get("/", (req, res) => res.send("Backend is running!"));
 
 // Start server
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${URL}`));
