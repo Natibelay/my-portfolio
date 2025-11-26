@@ -22,7 +22,7 @@ export default function Contact({ title = "Contact Me", buttonText = "Send Messa
     }
 
     try {
-      const res = await fetch("https://my-portfolio-8-xqei.onrender.com/api/contact", {
+      const res = await fetch("https://my-portfolio-9-9qmo.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, message }),
